@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Minimalism Converts - St. Clair</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet">
+</head>
+<body class="stealth-mode scroll-mode">
+
+    <nav id="ghost-nav" class="visible">
+        <ul>
+            <li onclick="window.location.href='index.html'">Home</li>
+            <li onclick="window.location.href='shop.html'">Shop</li>
+            <li class="active" onclick="window.location.href='blog.html'">Journal</li>
+            <li onclick="window.location.href='index.html#contact'">Contact</li>
+        </ul>
+    </nav>
+
+    <main>
+        
+        <div class="container">
+            <header class="article-header">
+                <span class="article-meta">Oct 12 — Design Theory</span>
+                <h1 class="article-title">Why Minimalism Converts</h1>
+            </header>
+        </div>
+
+        <article class="article-body-container">
+            
+            <img src="images/blog-1.jpg" alt="Minimalist Architecture" class="article-hero-img">
+
+            <div class="article-content">
+                <p>In a digital landscape cluttered with noise, silence is a luxury. When a user lands on a web interface, their cognitive load is often already at capacity. Minimalism isn't just an aesthetic choice; it is a functional strategy designed to respect the user's attention.</p>
+
+                <h3>The Power of Whitespace</h3>
+                <p>Whitespace, or negative space, is the active ingredient in clarity. It is not "empty"; it is a powerful tool that guides the eye. By removing the non-essential, we amplify the signal of what truly matters.</p>
+                
+                <blockquote>"Perfection is achieved not when there is nothing more to add, but when there is nothing left to take away."</blockquote>
+
+                <p>Studies in cognitive psychology suggest that simple, low-complexity visual environments are processed faster by the brain. This fluency creates a sense of trust. If a brand is confident enough to speak quietly, the user leans in to listen.</p>
+
+                <h3>Typography as Interface</h3>
+                <p>When you strip away decoration, drop shadows, and gradients, typography stops being just "text" and starts becoming the interface itself. The choice of typeface, the tracking, and the leading communicate the brand's voice before a single word is read.</p>
+
+                <p>At St. Clair, we build systems where structure informs aesthetic. We do not decorate; we reveal.</p>
+            </div>
+
+            <div class="back-nav">
+                <a href="blog.html" class="text-link">&larr; Back to Journal</a>
+            </div>
+
+        </article>
+
+    </main>
+
+    <script>
+        let isScrolling;
+        const nav = document.getElementById('ghost-nav');
+
+        window.addEventListener('scroll', function ( event ) {
+            nav.classList.remove('visible');
+            nav.classList.add('hidden');
+
+            window.clearTimeout( isScrolling );
+
+            isScrolling = setTimeout(function() {
+                nav.classList.remove('hidden');
+                nav.classList.add('visible');
+            }, 200);
+        }, false);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assets - St. Clair</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet">
+</head>
+<body class="stealth-mode scroll-mode">
+
+    <nav id="ghost-nav" class="visible">
+        <ul>
+            <li onclick="window.location.href='index.html'">Home</li>
+            <li onclick="window.location.href='index.html#about'">About</li>
+            <li onclick="window.location.href='index.html#portfolio'">Portfolio</li>
+            <li class="active" onclick="window.location.href='shop.html'">Shop</li>
+            <li onclick="window.location.href='blog.html'">Journal</li>
+            <li onclick="window.location.href='index.html#contact'">Contact</li>
+        </ul>
+    </nav>
+
+    <main>
+        <header class="page-header">
+            <h1 class="big-serif">Assets</h1>
+            <p class="subtitle">Tools for the Modern Creator</p>
+        </header>
+
+        <div class="shop-grid">
+            
+            <div class="product-item">
+                <img src="images/product-1.jpg" alt="UI Kit">
+                <div class="product-details">
+                    <span class="product-title">Minimalist UI Kit</span>
+                    <span class="product-price">$49.00</span>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <img src="images/product-2.jpg" alt="Icon Pack">
+                <div class="product-details">
+                    <span class="product-title">Linear Icon Set</span>
+                    <span class="product-price">$19.00</span>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <img src="images/product-3.jpg" alt="Mockups">
+                <div class="product-details">
+                    <span class="product-title">Stationery Mockups</span>
+                    <span class="product-price">$35.00</span>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <img src="images/project-1.jpg" alt="Website Template">
+                <div class="product-details">
+                    <span class="product-title">Agency Web Template</span>
+                    <span class="product-price">$89.00</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        let isScrolling;
+        const nav = document.getElementById('ghost-nav');
+
+        window.addEventListener('scroll', function ( event ) {
+            // Hide menu while scrolling
+            nav.classList.remove('visible');
+            nav.classList.add('hidden');
+
+            // Clear the timeout while scrolling
+            window.clearTimeout( isScrolling );
+
+            // Set a timeout to run after scrolling ends
+            isScrolling = setTimeout(function() {
+                // Show menu again
+                nav.classList.remove('hidden');
+                nav.classList.add('visible');
+            }, 200); // 200ms delay after stop
+        }, false);
+    </script>
+
+</body>
+</html>

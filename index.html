@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Clair Design Co.</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+</head>
+<body class="stealth-mode">
+
+    <nav id="ghost-nav" class="visible">
+        <ul>
+            <li class="active" onclick="jumpToSection(0)">Home</li>
+            <li onclick="jumpToSection(1)">About</li>
+            <li onclick="jumpToSection(2)">Services</li>
+            <li onclick="jumpToSection(3)">Portfolio</li>
+            <li onclick="jumpToSection(4)">Shop</li>
+            <li onclick="jumpToSection(5)">Journal</li>
+            <li onclick="jumpToSection(6)">Contact</li>
+        </ul>
+    </nav>
+
+    <main id="main-container">
+        
+        <section class="fade-section active">
+            <div class="bg-media">
+                <video autoplay muted loop playsinline poster="images/about-portrait.jpg">
+                    <source src="videos/hero-video.mp4" type="video/mp4">
+                </video>
+                <div class="overlay"></div>
+            </div>
+            <div class="content-center">
+                <h1 class="big-serif">St. Clair Design Co.</h1>
+                <p class="subtitle">Digital Excellence</p>
+            </div>
+        </section>
+
+        <section class="fade-section">
+            <div class="container">
+                <h2 class="big-serif">The Philosophy</h2>
+                <p class="body-text">We believe in interfaces that wait for you. Design that speaks only when spoken to. A digital experience that feels less like a website and more like a thought.</p>
+            </div>
+        </section>
+
+        <section class="fade-section">
+            <div class="container">
+                <h2 class="big-serif">Capabilities</h2>
+                <div class="list-grid">
+                    <div class="item">
+                        <h3>01</h3>
+                        <h4>Interface Design</h4>
+                    </div>
+                    <div class="item">
+                        <h3>02</h3>
+                        <h4>Development</h4>
+                    </div>
+                    <div class="item">
+                        <h3>03</h3>
+                        <h4>Brand Strategy</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="fade-section">
+            <div class="container">
+                <h2 class="big-serif">Selected Work</h2>
+                <div class="gallery-row">
+                    <img src="images/project-1.jpg" alt="Project 1">
+                    <img src="images/project-2.jpg" alt="Project 2">
+                    <img src="images/project-3.jpg" alt="Project 3">
+                </div>
+            </div>
+        </section>
+
+        <section class="fade-section">
+            <div class="container">
+                <h2 class="big-serif">Assets</h2>
+                <div class="gallery-row">
+                    <img src="images/product-1.jpg" alt="Product 1">
+                    <img src="images/product-2.jpg" alt="Product 2">
+                </div>
+                <a href="shop.html" class="text-link">Enter Shop &rarr;</a>
+            </div>
+        </section>
+
+        <section class="fade-section">
+            <div class="container">
+                <h2 class="big-serif">Journal</h2>
+                <div class="text-list">
+                    <div class="row">
+                        <span>Oct 12</span>
+                        <span>Why Minimalism Converts</span>
+                    </div>
+                    <div class="row">
+                        <span>Sep 28</span>
+                        <span>The Future of Digital Identity</span>
+                    </div>
+                </div>
+                <a href="blog.html" class="text-link">Read All &rarr;</a>
+            </div>
+        </section>
+
+        <section class="fade-section">
+            <div class="container">
+                <h2 class="big-serif">Inquire</h2>
+                <a href="mailto:hello@stclair.co" class="big-email">hello@stclair.co</a>
+                
+                <footer class="site-footer" style="margin-top: 4rem; border: none;">
+                    <p>&copy; 2025 St. Clair Design Co.</p>
+                </footer>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

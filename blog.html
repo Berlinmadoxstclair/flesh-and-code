@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal - St. Clair</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Montserrat:wght@100;200;400&display=swap" rel="stylesheet">
+</head>
+<body class="stealth-mode scroll-mode">
+
+    <nav id="ghost-nav" class="visible">
+        <ul>
+            <li onclick="window.location.href='index.html'">Home</li>
+            <li onclick="window.location.href='index.html#about'">About</li>
+            <li onclick="window.location.href='index.html#portfolio'">Portfolio</li>
+            <li onclick="window.location.href='shop.html'">Shop</li>
+            <li class="active" onclick="window.location.href='blog.html'">Journal</li>
+            <li onclick="window.location.href='index.html#contact'">Contact</li>
+        </ul>
+    </nav>
+
+    <main>
+        <header class="page-header">
+            <h1 class="big-serif">Journal</h1>
+        </header>
+
+        <div class="journal-container">
+            
+            <div class="interests-bar">
+                <span>Design Theory</span>
+                <span>Digital Identity</span>
+                <span>Architecture</span>
+                <span>Process</span>
+            </div>
+
+            <article class="journal-entry">
+                <span class="journal-meta">Oct 12 — Design Theory</span>
+                <h2 class="journal-title">Why Minimalism Converts</h2>
+                <p class="journal-excerpt">In a digital landscape cluttered with noise, silence is a luxury. Exploring the psychology of whitespace and how reduction leads to clarity.</p>
+                <a href="blog-post-1.html" class="read-link">Read Story &rarr;</a>
+            </article>
+
+            <article class="journal-entry">
+                <span class="journal-meta">Sep 28 — Identity</span>
+                <h2 class="journal-title">The Future of Digital Persona</h2>
+                <p class="journal-excerpt">How brands are evolving in the post-social era. We are moving away from loud broadcasting towards quiet, tailored interactions.</p>
+                <a href="blog-post-2.html" class="read-link">Read Story &rarr;</a>
+            </article>
+
+            <article class="journal-entry">
+                <span class="journal-meta">Sep 15 — Process</span>
+                <h2 class="journal-title">From Sketch to Screen</h2>
+                <p class="journal-excerpt">A look inside the St. Clair studio. Why we start every digital project with pen and paper, and how structure informs aesthetic.</p>
+                <a href="blog-post-3.html" class="read-link">Read Story &rarr;</a>
+            </article>
+
+        </div>
+    </main>
+
+    <script>
+        let isScrolling;
+        const nav = document.getElementById('ghost-nav');
+
+        window.addEventListener('scroll', function ( event ) {
+            nav.classList.remove('visible');
+            nav.classList.add('hidden');
+            window.clearTimeout( isScrolling );
+            isScrolling = setTimeout(function() {
+                nav.classList.remove('hidden');
+                nav.classList.add('visible');
+            }, 200);
+        }, false);
+    </script>
+
+</body>
+</html>
