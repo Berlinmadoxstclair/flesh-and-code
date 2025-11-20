@@ -8,39 +8,37 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentIndex = 0;
     let isAnimating = false;
 
-    /* === 1. MAIN TRANSITION FUNCTION === */
+    /* === 1. TRANSITION FUNCTION === */
     function goToSection(index) {
-        // Boundary checks
         if (index < 0 || index >= sections.length || isAnimating) return;
         
-        // LOCK: Start Animation
         isAnimating = true;
 
-        // ACTION: Hide the Menu immediately
+        // Hide Menu
         navElement.classList.remove('visible');
         navElement.classList.add('hidden');
 
-        // 1. Switch Content
+        // Switch Content
         sections.forEach(sec => sec.classList.remove('active'));
         sections[index].classList.add('active');
 
-        // 2. Update Menu Active State (ready for when it reappears)
+        // Update Menu State
         navItems.forEach(item => item.classList.remove('active'));
         navItems[index].classList.add('active');
 
         currentIndex = index;
 
-        // 3. UNLOCK: End Animation & Reveal Menu
-        // TIMING UPDATE: 1300ms creates a "soft landing" sync with the 1500ms CSS fade
+        // Reveal Menu (1.2s delay)
         setTimeout(() => {
             isAnimating = false;
             navElement.classList.remove('hidden');
             navElement.classList.add('visible');
-        }, 1300);
+        }, 1200);
     }
 
-    /* === 2. WHEEL LISTENER (The Trigger) === */
+    /* === 2. MOUSE WHEEL (Desktop) === */
     window.addEventListener('wheel', (e) => {
+        if (document.body.classList.contains('scroll-mode')) return;
         if (isAnimating) return;
         
         if (e.deltaY > 0) {
@@ -50,7 +48,34 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    /* === 3. CLICK LISTENER === */
+    /* === 3. TOUCH SWIPE (Mobile Fix) === */
+    let touchStartY = 0;
+    let touchEndY = 0;
+
+    document.addEventListener('touchstart', (e) => {
+        if (document.body.classList.contains('scroll-mode')) return;
+        touchStartY = e.changedTouches[0].screenY;
+    }, {passive: false});
+
+    document.addEventListener('touchend', (e) => {
+        if (document.body.classList.contains('scroll-mode')) return;
+        touchEndY = e.changedTouches[0].screenY;
+        handleGesture();
+    }, {passive: false});
+
+    function handleGesture() {
+        if (isAnimating) return;
+        const swipeDistance = touchStartY - touchEndY;
+        
+        // Threshold of 50px prevents accidental small movements
+        if (swipeDistance > 50) {
+            goToSection(currentIndex + 1); // Swipe Up -> Next
+        } else if (swipeDistance < -50) {
+            goToSection(currentIndex - 1); // Swipe Down -> Prev
+        }
+    }
+
+    /* === 4. CLICK LISTENER === */
     window.jumpToSection = function(index) {
         goToSection(index);
     }
