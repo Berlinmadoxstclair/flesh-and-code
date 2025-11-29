@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* === VARIABLES === */
     const sections = document.querySelectorAll('.fade-section');
     const navElement = document.getElementById('ghost-nav');
-    const navItems = document.querySelectorAll('#ghost-nav li');
+    const navItems = document.querySelectorAll('#ghost-nav .nav-trigger');
     
     let currentIndex = 0;
     let isAnimating = false;
@@ -75,8 +75,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    /* === 4. CLICK LISTENER === */
-    window.jumpToSection = function(index) {
-        goToSection(index);
-    }
+    /* === 4. CLICK & KEYBOARD LISTENERS === */
+    navItems.forEach(item => {
+        const targetIndex = Number(item.dataset.sectionIndex);
+        const activateSection = () => goToSection(targetIndex);
+
+        item.addEventListener('click', (event) => {
+            if (event.detail === 0) return;
+            activateSection();
+        });
+
+        item.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                activateSection();
+            }
+        });
+    });
 });

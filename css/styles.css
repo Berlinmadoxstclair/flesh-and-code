@@ -68,29 +68,49 @@ a { color: inherit; text-decoration: none; transition: 0.3s; }
 
 #ghost-nav ul { list-style: none; text-align: right; }
 
-#ghost-nav li {
-    font-family: 'Montserrat', sans-serif; 
-    font-weight: 200; 
-    font-size: 4rem;  
-    text-transform: uppercase; 
-    letter-spacing: 4px; 
-    line-height: 1.1;
-    color: var(--accent); 
+#ghost-nav li { margin-bottom: 0.5rem; }
+
+#ghost-nav .nav-trigger,
+#ghost-nav .nav-link {
+    display: inline-block;
+    width: 100%;
+    background: none;
+    border: none;
+    color: var(--accent);
     cursor: pointer;
-    margin-bottom: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    font-size: 4rem;
+    text-align: right;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    line-height: 1.1;
+    padding: 0;
     transition: all 0.3s ease;
     position: relative;
 }
 
-#ghost-nav li:hover { 
-    color: #fff; 
+#ghost-nav .nav-trigger:hover,
+#ghost-nav .nav-link:hover,
+#ghost-nav .nav-trigger:focus-visible,
+#ghost-nav .nav-link:focus-visible {
+    color: #fff;
     text-shadow: 0 0 15px rgba(255,255,255,0.5);
-    letter-spacing: 6px; 
+    letter-spacing: 6px;
+    outline: none;
 }
 
-#ghost-nav li.active { 
-    color: #fff; 
-    font-weight: 400; 
+#ghost-nav .nav-trigger.active,
+#ghost-nav .nav-link.active {
+    color: #fff;
+    font-weight: 400;
+}
+
+#ghost-nav .nav-trigger:focus-visible,
+#ghost-nav .nav-link:focus-visible {
+    box-shadow: 0 0 0 2px #fff;
+    border-radius: 2px;
+    outline-offset: 4px;
 }
 
 
@@ -220,11 +240,14 @@ body.scroll-mode { overflow-y: auto; height: auto; padding-bottom: 100px; }
         text-align: center;
     }
 
-    #ghost-nav li {
+    #ghost-nav li { margin-bottom: 0; }
+
+    #ghost-nav .nav-trigger,
+    #ghost-nav .nav-link {
         font-size: 0.75rem; /* Small, Technical Size */
         font-weight: 500;
         letter-spacing: 1px;
-        margin-bottom: 0;
+        text-align: center;
     }
 
     /* Mobile Menu Animation (Slide Up/Down) */
